@@ -1,7 +1,3 @@
-import Cookies from 'universal-cookie';
-
-const cookies = new Cookies(req.headers.cookie);
-const cookiesSetter = new Cookies();
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
@@ -157,7 +153,8 @@ app.get("/login", (req, res) => {
   console.log("server loading")
   console.log(req.session.user)
   if (req.session.user) {
-    res.send( cookies.get('myCat') );
+    res.send(req.session.user);
+    console.log(req.session.user)
   } else {
     res.send({ loggedIn: false });
   }
@@ -178,10 +175,8 @@ app.post("/login", (req, res) => {
       if (result.length > 0) {
         bcrypt.compare(password, result[0].password, (error, response) => {
           if (response) {
-            cookiesSetter.set('myCat', 'Pacman', { path: '/' });
-            console.log(cookies.get('myCat')); // Pacman
-            // req.session.user = result;
-            // console.log(req.session.user);
+            req.session.user = result;
+            console.log(req.session.user);
             res.send(result);
           } else {
             res.send({ message: "Wrong username/password combination!" });

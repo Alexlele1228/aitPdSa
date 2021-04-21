@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import "../App.css";
-import "../Login.css"
-import GoogleLogin from '../components/GoogleLogin';
-import { Form, Button,Row,Col, Container } from 'react-bootstrap';
+import { Form, Button, Container } from 'react-bootstrap';
 export default function Registration() {
 
   const [usernameReg, setUsernameReg] = useState("");
