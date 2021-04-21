@@ -1,0 +1,76 @@
+/* .container {
+    max-width: "600px";
+    margin: 0 auto;
+  }
+  
+  .error {
+    color: red;
+  }
+
+  p{
+      margin-bottom: 40px;
+  }
+
+  
+  .myForm {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 1em;
+    width: 40em;
+    padding: 1em;
+    border: 1px solid #ccc;
+  }
+  
+  .myForm * {
+    box-sizing: border-box;
+  }
+  
+  
+  .myForm legend,
+  .myForm label {
+    padding: 0;
+    font-weight: bold;
+    color:#FFF;
+  }
+
+  
+  .myForm label {
+      font-size: 1em;
+    text-align: left;
+    display: block;
+  }
+  
+  .myForm input[type="text"],
+  .myForm input[type="date"],
+  .myForm input[type="number"],
+  .myForm select,
+  .myForm textarea {
+    float: right;
+    width: 50%;
+    border: 1px solid #ccc;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 0.9em;
+    padding: 0.3em;
+  
+  }
+  
+  .myForm textarea {
+    height: 100px;
+
+  }
+
+  
+  .myForm button {
+ 
+    border-radius: 0.5em;
+    background:rgb(81, 138, 23);
+    border: none;
+    font-weight: bold;
+    margin-left: 40%;
+    margin-top: 150px;
+  }
+  
+  .myForm button:hover {
+    background: rgb(172, 196, 20);
+    cursor: pointer;
+  }
+   */
