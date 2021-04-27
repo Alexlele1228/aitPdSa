@@ -63,12 +63,10 @@ class Individual extends Component {
         Axios.post("http://localhost:3001/checkIfSpecificUserAdmin", {
             user_id: this.props.location.state.user_id,
         }).then((response) => {
-
             if (response.data.length > 0) {
                 this.setState({ isAdmin: true });
             } else {
                 this.setState({ isAdmin: false });
-
             }
         });
     }

@@ -24,10 +24,10 @@ export default function Login() {
         }).then((response) => {
           console.log(response);
           if(response)
-           window.location.replace('/')
+           window.location.replace('/home')
         });
       }else
-      window.location.replace('/')
+      window.location.replace('/home')
     });
 
   }

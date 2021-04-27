@@ -6,8 +6,9 @@ import Home from './pages/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav, Carousel, Button, Alert } from 'react-bootstrap';
 import Registration from "./pages/Registration";
-import GoogleLogin from './components/GoogleLogin';
+
 import Manage from './pages/Manage';
+import StaffLogin from './pages/StaffLogin';
 import Blank from './pages/Blank';
 import Individual from './pages/Individual';
 import Setting from './pages/Setting';
@@ -61,7 +62,7 @@ class App extends Component {
 
       <Router>
         <Navbar bg="light" variant="light">
-          <Navbar.Brand href="/">
+          <Navbar.Brand href="/staffLogin">
             <img
               src={require('./images/ait.png')}
               alt="logo"
@@ -70,8 +71,12 @@ class App extends Component {
             />
           </Navbar.Brand>
           <Nav className="mr-auto">
-            <Nav.Link href="/home">Submmit Record</Nav.Link>
+            {
+              this.state.username &&
+              <Nav.Link href="/home">Submmit Record</Nav.Link>}
+
             <Nav.Link href="/login">Admin Login</Nav.Link>
+            <Nav.Link href="/staffLogin">Staff Login</Nav.Link>
 
             {
               this.state.isAdmin &&
@@ -83,20 +88,20 @@ class App extends Component {
               <Nav.Link href="/setting">Setting</Nav.Link>}
 
           </Nav>
-       
+
           {
             this.state.username &&
-            (this.state.isAdmin?
-            <Alert key={1} variant='primary'>
-              {this.state.username + " (Admin) "}
-            </Alert>
-            :
-            <Alert key={1} variant='dark'>
-              {this.state.username + " (Staff) "}
-            </Alert>
+            (this.state.isAdmin ?
+              <Alert key={1} variant='primary'>
+                {this.state.username + " (Admin) "}
+              </Alert>
+              :
+              <Alert key={1} variant='dark'>
+                {this.state.username + " (Staff) "}
+              </Alert>
             )
           }
-       
+
           {
             this.state.username &&
             <Button variant="danger" onClick={this.logout}>Log out</Button>
@@ -104,29 +109,16 @@ class App extends Component {
 
 
         </Navbar>
-        <Carousel>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="https://static.bandicam.com/img/mainbanner_02.jpg"
-              alt="First slide"
-            />
 
-            <Carousel.Caption>
 
-              <h2>Welcome to PD Record System</h2>
-              <p>For AIT Academic Staff PD Activities Recording</p>
-              {!this.state.username && <GoogleLogin />}
-              {this.state.username && <h4>Hello {this.state.username}</h4>}
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
+
 
 
 
         <Switch>
           <Route exact path="/home">{this.state.username ? <Home /> : <Blank />}</Route>
           <Route exact path="/login"><Registration /></Route>
+          <Route exact path="/staffLogin"><StaffLogin /></Route>
           <Route exact path="/manage">{this.state.username ? (this.state.isAdmin && <Manage />) : <Blank />}</Route>
           <Route exact path="/individual">{this.state.username ? (this.state.isAdmin && <Individual />) : <Blank />}</Route>
           <Route exact path="/setting">{this.state.username ? (this.state.isAdmin && <Setting />) : <Blank />}</Route>

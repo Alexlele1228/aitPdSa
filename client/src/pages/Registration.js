@@ -40,7 +40,7 @@ class Registration extends Component {
       if (response.data.message) {
         console.log(response.data.message);
       } else {
-        window.location.replace('/')
+        window.location.replace('/manage')
       }
     });
 
